@@ -191,3 +191,34 @@ h2 {
         text-align: center;
     }
 }
+
+.tooltip {
+    position: absolute;
+    z-index: 10;
+    padding: 8px 10px;
+    border: 1px solid #aaa;
+    border-radius: 5px;
+    color: var(--ink);
+    background: white;
+    box-shadow: 0 4px 14px rgba(23, 32, 51, 0.15);
+    font-size: 14px;
+    line-height: 1.5;
+    pointer-events: none;
+    opacity: 0;
+}
+
+.assignment-card {
+    margin-top: 28px;
+}
+
+#city-chart {
+    min-height: 620px;
+    overflow-x: auto;
+}
+
+#city-chart svg {
+    display: block;
+    min-width: 820px;
+    width: 100%;
+    height: auto;
+}

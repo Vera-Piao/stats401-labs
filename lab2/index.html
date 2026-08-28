@@ -1,5 +1,89 @@
 <!DOCTYPE html>
 <html lang="en">
-<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Lab 2</title><link rel="stylesheet" href="../css/style.css"></head>
-<body><main class="page-shell"><section class="placeholder-card"><p class="lab-number">STATS 401</p><h1>Lab 2</h1><p>Lab 2 will be added here.</p><a class="back-link" href="../index.html">← Back to home</a></section></main></body>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Lab 2 - Multivariate Visualization</title>
+
+    <link rel="stylesheet"
+          href="../css/style.css">
+</head>
+
+<body>
+    <main class="page-shell">
+        <header class="site-header">
+            <p class="eyebrow">STATS 401 · Lab 2</p>
+            <h1>Multivariate Visualization with D3</h1>
+            <p class="intro">
+                This visualization explores the relationship among
+                study hours, exam score, major, and year level.
+            </p>
+        </header>
+
+        <nav class="lab-nav" aria-label="Course labs">
+            <a href="../lab1/index.html">Lab 1</a>
+            <a class="active"
+               aria-current="page"
+               href="index.html">Lab 2</a>
+            <a href="../lab3/index.html">Lab 3</a>
+            <a href="../lab4/index.html">Lab 4</a>
+            <a href="../lab5/index.html">Lab 5</a>
+            <a href="../lab6/index.html">Lab 6</a>
+            <a href="../lab7/index.html">Lab 7</a>
+            <a href="../lab8/index.html">Lab 8</a>
+            <a href="../lab9/index.html">Lab 9</a>
+            <a href="../lab10/index.html">Lab 10</a>
+        </nav>
+
+        <section class="chart-card"
+                 aria-labelledby="visualization-title">
+            <div class="chart-heading">
+                <p class="lab-number">Lab 2 Visualization</p>
+                <h2 id="visualization-title">
+                    Student Multivariate Scatterplot
+                </h2>
+                <p>
+                    Position, color, and size represent different
+                    student variables.
+                </p>
+            </div>
+
+            <div id="chart"></div>
+            <div id="tooltip" class="tooltip"></div>
+        </section>
+
+        <section class="chart-card assignment-card"
+                 aria-labelledby="city-visualization-title">
+            <div class="chart-heading">
+                <p class="lab-number">Lab 2 Assignment</p>
+                <h2 id="city-visualization-title">
+                    City Population and Development
+                </h2>
+                <p>
+                    This lollipop chart compares city population,
+                    temperature, development level, and region.
+                </p>
+            </div>
+
+            <div id="city-chart"></div>
+            <div id="city-tooltip" class="tooltip"></div>
+            <div class="design-justification">
+                <h3>Design Justification</h3>
+                <p>
+                    I used a horizontal lollipop chart because it makes the populations of twelve cities easy to compare along a common numerical scale. Each city is placed on the vertical axis, while population is mapped to horizontal position and line length, so cities with larger populations appear farther to the right. Circle size represents average temperature, allowing warmer and cooler cities to be compared without adding another axis. Color represents region because region is a categorical variable, and distinct colors make the four groups easy to identify. Development level is included beside each city name and ordered from Low to High, which preserves the ordinal meaning of the variable. The light connecting lines guide the eye from each label to its population value. The tooltip provides exact values on demand while keeping the chart uncluttered. The chart suggests that highly developed cities generally have larger populations, while the temperature and region encodings help reveal differences among cities with similar population sizes.
+                </p>
+            </div>
+        </section>
+
+        <a class="back-link" href="../index.html">
+            ← Back to all labs
+        </a>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
+    <script src="lab2.js"></script>
+    <script src="cities.js"></script>
+</body>
 </html>
