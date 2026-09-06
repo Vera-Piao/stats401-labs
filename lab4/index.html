@@ -1,5 +1,136 @@
 <!DOCTYPE html>
 <html lang="en">
-<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Lab 4</title><link rel="stylesheet" href="../css/style.css"></head>
-<body><main class="page-shell"><section class="placeholder-card"><p class="lab-number">STATS 401</p><h1>Lab 4</h1><p>Lab 4 will be added here.</p><a class="back-link" href="../index.html">← Back to home</a></section></main></body>
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Lab 4 - Cleaning Web Data</title>
+
+    <link
+        rel="stylesheet"
+        href="../css/style.css?v=5"
+    >
+</head>
+
+<body>
+    <main class="page-shell">
+
+        <header class="site-header">
+            <p class="eyebrow">STATS 401 · Lab 4</p>
+
+            <h1>Cleaning Web Data for Visualization</h1>
+
+            <p class="intro">
+                An analysis of monthly sentiment patterns in
+                Donald Trump's original tweets during 2017.
+            </p>
+        </header>
+
+        <nav class="lab-nav" aria-label="Course labs">
+            <a href="../lab1/index.html">Lab 1</a>
+            <a href="../lab2/index.html">Lab 2</a>
+            <a href="../lab3/index.html">Lab 3</a>
+
+            <a
+                class="active"
+                aria-current="page"
+                href="index.html"
+            >
+                Lab 4
+            </a>
+
+            <a href="../lab5/index.html">Lab 5</a>
+            <a href="../lab6/index.html">Lab 6</a>
+            <a href="../lab7/index.html">Lab 7</a>
+            <a href="../lab8/index.html">Lab 8</a>
+            <a href="../lab9/index.html">Lab 9</a>
+            <a href="../lab10/index.html">Lab 10</a>
+        </nav>
+
+        <section
+            class="chart-card"
+            aria-labelledby="chart-title"
+        >
+            <div class="chart-heading">
+                <p class="lab-number">Lab 4 Assignment</p>
+
+                <h2 id="chart-title">
+                    Monthly Tweet Sentiment in 2017
+                </h2>
+
+                <p>
+                    Each bar shows the percentage of original
+                    tweets classified as negative, neutral, or
+                    positive during that month.
+                </p>
+            </div>
+
+            <div
+                id="sentiment-legend"
+                class="sentiment-legend"
+                aria-label="Sentiment categories"
+            ></div>
+
+            <div
+                id="sentiment-chart"
+                role="img"
+                aria-label="A normalized stacked bar chart showing monthly tweet sentiment"
+            ></div>
+
+            <div
+                id="chart-tooltip"
+                class="tooltip"
+                aria-hidden="true"
+            ></div>
+        </section>
+
+        <section
+            class="chart-card assignment-card"
+            aria-labelledby="analysis-title"
+        >
+            <div class="chart-heading">
+                <p class="lab-number">Short Analysis</p>
+
+                <h2 id="analysis-title">
+                    Data, Method, and Findings
+                </h2>
+            </div>
+
+            <p class="analysis-text">
+                This visualization uses a public archive of Donald
+                Trump’s tweets from 2017. The original file contained
+                2,605 records. I converted tweet IDs to strings,
+                standardized dates and source names, checked engagement
+                values, removed three records outside 2017, and excluded
+                310 retweets so that repeated content would not dominate
+                the analysis. The final dataset contains 2,292 original
+                tweets. Sentiment was estimated from the tweet text using
+                the CardiffNLP Twitter RoBERTa model. For each tweet, the
+                model produced negative, neutral, and positive
+                probabilities, and the highest probability determined its
+                category. These classifications are model-generated
+                estimates rather than ground-truth labels. The normalized
+                stacked bars show the monthly percentage of tweets in each
+                sentiment category. Negative tweets made up the largest
+                share in January and February, at approximately 45% and
+                46%. Positive tweets became more prevalent later in the
+                year, reaching about 56% in September and 58% in December.
+            </p>
+        </section>
+
+        <a class="back-link" href="../index.html">
+            ← Back to all labs
+        </a>
+
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
+    <script src="lab4.js?v=5"></script>
+</body>
+
 </html>
