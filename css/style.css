@@ -383,3 +383,14 @@ h2 {
         min-height: 440px;
     }
 }
+
+s.tooltip {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+    background: white;
+    border: 1px solid #aaa;
+    padding: 8px 10px;
+    border-radius: 4px;
+    font-size: 14px;
+}
