@@ -1,5 +1,364 @@
 <!DOCTYPE html>
 <html lang="en">
-<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Lab 6</title><link rel="stylesheet" href="../css/style.css"></head>
-<body><main class="page-shell"><section class="placeholder-card"><p class="lab-number">STATS 401</p><h1>Lab 6</h1><p>Lab 6 will be added here.</p><a class="back-link" href="../index.html">← Back to home</a></section></main></body>
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Lab 6 - Hierarchical Data Visualization</title>
+
+    <link
+        rel="stylesheet"
+        href="../css/style.css?v=6"
+    >
+</head>
+
+
+<body>
+
+    <main class="page-shell">
+
+
+        <!-- Page Header -->
+        <header class="site-header">
+
+            <p class="eyebrow">
+                STATS 401 · Lab 6
+            </p>
+
+            <h1>
+                Hierarchical Data Visualization
+            </h1>
+
+            <p class="intro">
+                Exploring hierarchical data with an interactive
+                node-link tree and treemaps using different
+                spatial subdivision methods.
+            </p>
+
+        </header>
+
+
+        <!-- Navigation -->
+        <nav
+            class="lab-nav"
+            aria-label="Course labs"
+        >
+
+            <a href="../lab1/index.html">
+                Lab 1
+            </a>
+
+            <a href="../lab2/index.html">
+                Lab 2
+            </a>
+
+            <a href="../lab3/index.html">
+                Lab 3
+            </a>
+
+            <a href="../lab4/index.html">
+                Lab 4
+            </a>
+
+            <a href="../lab5/index.html">
+                Lab 5
+            </a>
+
+            <a
+                class="active"
+                aria-current="page"
+                href="index.html"
+            >
+                Lab 6
+            </a>
+
+            <a href="../lab7/index.html">
+                Lab 7
+            </a>
+
+            <a href="../lab8/index.html">
+                Lab 8
+            </a>
+
+            <a href="../lab9/index.html">
+                Lab 9
+            </a>
+
+            <a href="../lab10/index.html">
+                Lab 10
+            </a>
+
+        </nav>
+
+
+        <!-- Tutorial Tree -->
+        <section
+            class="chart-card"
+            aria-labelledby="tree-title"
+        >
+
+            <div class="chart-heading">
+
+                <p class="lab-number">
+                    Tutorial
+                </p>
+
+                <h2 id="tree-title">
+                    Node-Link Tree
+                </h2>
+
+                <p>
+                    The node-link tree represents the hierarchical
+                    organization of cities by continent, country,
+                    and region. Click an internal node to collapse
+                    or expand its descendants.
+                </p>
+
+            </div>
+
+            <div
+                id="tree"
+                role="img"
+                aria-label="Interactive hierarchical node-link tree"
+            ></div>
+
+        </section>
+
+
+        <!-- Tutorial Treemap -->
+        <section
+            class="chart-card"
+            aria-labelledby="tutorial-treemap-title"
+        >
+
+            <div class="chart-heading">
+
+                <p class="lab-number">
+                    Tutorial
+                </p>
+
+                <h2 id="tutorial-treemap-title">
+                    Population Treemap
+                </h2>
+
+                <p>
+                    Rectangle area represents city population,
+                    while color distinguishes continents.
+                    Hover over a rectangle to inspect its value.
+                </p>
+
+            </div>
+
+            <div
+                id="treemap"
+                role="img"
+                aria-label="Treemap of city populations"
+            ></div>
+
+        </section>
+
+
+        <!-- Assignment Introduction -->
+        <section
+            class="chart-card assignment-card"
+            aria-labelledby="assignment-title"
+        >
+
+            <div class="chart-heading">
+
+                <p class="lab-number">
+                    Assignment
+                </p>
+
+                <h2 id="assignment-title">
+                    GDP Hierarchy with Two Treemaps
+                </h2>
+
+                <p>
+                    The dataset organizes countries hierarchically
+                    by continent and geographic area. In both
+                    treemaps, rectangle area represents GDP amount
+                    and color represents GDP status.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- Squarify Treemap -->
+        <section
+            class="chart-card"
+            aria-labelledby="squarify-title"
+        >
+
+            <div class="chart-heading">
+
+                <p class="lab-number">
+                    Treemap 1
+                </p>
+
+                <h2 id="squarify-title">
+                    Squarify
+                </h2>
+
+                <p>
+                    The squarified layout attempts to produce
+                    rectangles with relatively balanced aspect
+                    ratios while preserving area proportional
+                    to GDP.
+                </p>
+
+            </div>
+
+            <div
+                id="gdp-treemap-squarify"
+                role="img"
+                aria-label="Squarified treemap of country GDP"
+            ></div>
+
+        </section>
+
+
+        <!-- Binary Treemap -->
+        <section
+            class="chart-card"
+            aria-labelledby="binary-title"
+        >
+
+            <div class="chart-heading">
+
+                <p class="lab-number">
+                    Treemap 2
+                </p>
+
+                <h2 id="binary-title">
+                    Binary
+                </h2>
+
+                <p>
+                    The binary layout recursively divides the
+                    available space into two groups while
+                    preserving rectangle area proportional
+                    to GDP.
+                </p>
+
+            </div>
+
+            <div
+                id="gdp-treemap-binary"
+                role="img"
+                aria-label="Binary treemap of country GDP"
+            ></div>
+
+        </section>
+
+
+        <!-- Legend -->
+        <section
+            class="chart-card assignment-card"
+            aria-labelledby="legend-title"
+        >
+
+            <div class="chart-heading">
+
+                <p class="lab-number">
+                    Legend
+                </p>
+
+                <h2 id="legend-title">
+                    GDP Status
+                </h2>
+
+            </div>
+
+            <div
+                id="gdp-legend"
+                aria-label="GDP status legend"
+            ></div>
+
+        </section>
+
+
+        <!-- Part C -->
+        <section
+            class="chart-card assignment-card"
+            aria-labelledby="design-title"
+        >
+
+            <div class="chart-heading">
+
+                <p class="lab-number">
+                    Design Description
+                </p>
+
+                <h2 id="design-title">
+                    Comparing Treemap Segmentation Methods
+                </h2>
+
+            </div>
+
+            <p class="analysis-text">
+                Both treemaps encode GDP using rectangle area and GDP
+                status using color, so the main difference between them
+                is the spatial subdivision method. The squarified
+                treemap attempts to create rectangles with more balanced
+                aspect ratios, which makes many countries easier to label
+                and supports visual comparison of GDP across countries.
+                In contrast, the binary treemap recursively divides the
+                available space into two groups. This produces a more
+                structured partition but can create long or narrow
+                rectangles, especially for countries with smaller GDP
+                values, making labels and area comparisons more difficult.
+                In both layouts, large economies such as the United States
+                and China are immediately visible because they occupy
+                substantially larger areas. Color provides a consistent
+                secondary encoding of GDP status across both layouts.
+                Overall, the comparison demonstrates that the segmentation
+                method changes the spatial organization and readability
+                of the hierarchy even when the underlying hierarchical
+                data and visual encodings remain the same.
+            </p>
+
+        </section>
+
+
+        <!-- Tooltips -->
+        <div
+            id="tooltip"
+            class="tooltip"
+            aria-hidden="true"
+        ></div>
+
+        <div
+            id="gdp-tooltip"
+            class="tooltip"
+            aria-hidden="true"
+        ></div>
+
+
+        <!-- Back Link -->
+        <a
+            class="back-link"
+            href="../index.html"
+        >
+            ← Back to all labs
+        </a>
+
+    </main>
+
+
+    <!-- D3 -->
+    <script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
+
+    <!-- Lab 6 -->
+    <script src="lab6.js"></script>
+
+</body>
+
 </html>

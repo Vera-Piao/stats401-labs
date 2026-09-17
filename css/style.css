@@ -394,3 +394,22 @@ s.tooltip {
     border-radius: 4px;
     font-size: 14px;
 }
+
+.tooltip {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+    background: white;
+    border: 1px solid #aaa;
+    padding: 8px 10px;
+    border-radius: 4px;
+}
+
+#tree svg,
+#treemap svg,
+#gdp-treemap-squarify svg,
+#gdp-treemap-binary svg {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
