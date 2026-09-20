@@ -413,3 +413,156 @@ s.tooltip {
     max-width: 100%;
     height: auto;
 }
+
+/* Lab 7: Temporal commercial network */
+
+#network-chart {
+    min-height: 620px;
+    overflow-x: auto;
+}
+
+#network-chart svg {
+    display: block;
+    min-width: 760px;
+    width: 100%;
+    height: auto;
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    background: #fbfcfe;
+}
+
+.network-node {
+    cursor: grab;
+}
+
+.network-node:active {
+    cursor: grabbing;
+}
+
+.network-link {
+    stroke-linecap: round;
+}
+
+.network-label {
+    fill: var(--ink);
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    pointer-events: none;
+}
+
+.weather-controls,
+.animation-controls,
+.network-controls {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 10px;
+    margin: 0 0 18px;
+}
+
+.weather-controls label,
+.network-controls label {
+    color: var(--muted);
+    font-size: 0.9rem;
+    font-weight: 700;
+}
+
+.weather-controls select,
+.weather-controls input,
+.network-controls input {
+    min-height: 38px;
+    padding: 7px 10px;
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    color: var(--ink);
+    background: var(--surface);
+}
+
+.weather-controls button,
+.animation-controls button,
+.network-controls button {
+    min-height: 38px;
+    padding: 8px 15px;
+    border: 1px solid var(--blue);
+    border-radius: 6px;
+    color: #ffffff;
+    background: var(--blue);
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.weather-controls button:hover,
+.animation-controls button:hover,
+.network-controls button:hover {
+    background: var(--blue-dark);
+}
+
+#network-slider {
+    flex: 1 1 280px;
+}
+
+#network-summary {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin: 0 0 18px;
+}
+
+#network-summary p {
+    margin: 0;
+    padding: 8px 12px;
+    border-radius: 6px;
+    color: var(--muted);
+    background: var(--blue-soft);
+}
+
+#network-summary strong {
+    color: var(--ink);
+}
+
+.legend-section + .legend-section {
+    margin-top: 24px;
+}
+
+.legend-section h3 {
+    margin: 0 0 10px;
+    font-size: 1rem;
+}
+
+.network-legend-items {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px 22px;
+}
+
+.network-legend-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--muted);
+    font-size: 0.92rem;
+    font-weight: 700;
+}
+
+.network-legend-swatch {
+    display: inline-block;
+    flex: 0 0 15px;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+}
+
+.network-legend-line {
+    display: inline-block;
+    flex: 0 0 28px;
+    width: 28px;
+    height: 5px;
+    border-radius: 999px;
+}
+
+.legend-explanation {
+    max-width: 720px;
+    margin: 0;
+    color: var(--muted);
+}
