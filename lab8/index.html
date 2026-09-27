@@ -1,5 +1,311 @@
 <!DOCTYPE html>
 <html lang="en">
-<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Lab 8</title><link rel="stylesheet" href="../css/style.css"></head>
-<body><main class="page-shell"><section class="placeholder-card"><p class="lab-number">STATS 401</p><h1>Lab 8</h1><p>Lab 8 will be added here.</p><a class="back-link" href="../index.html">← Back to home</a></section></main></body>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lab 8 - Web Text Data and Visualization</title>
+    <link rel="stylesheet" href="../css/style.css?v=9">
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+</head>
+<body>
+    <main class="page-shell">
+        <header class="site-header">
+            <p class="eyebrow">STATS 401 · Lab 8</p>
+            <h1>Web Text Data and Visualization</h1>
+            <p class="intro">
+                A semantic exploration of the Duke Kunshan University
+                Undergraduate Bulletin, connecting official document
+                structure with data-driven topics and similar passages.
+            </p>
+        </header>
+
+        <nav class="lab-nav" aria-label="Course labs">
+            <a href="../lab1/index.html">Lab 1</a>
+            <a href="../lab2/index.html">Lab 2</a>
+            <a href="../lab3/index.html">Lab 3</a>
+            <a href="../lab4/index.html">Lab 4</a>
+            <a href="../lab5/index.html">Lab 5</a>
+            <a href="../lab6/index.html">Lab 6</a>
+            <a href="../lab7/index.html">Lab 7</a>
+            <a class="active" aria-current="page" href="index.html">Lab 8</a>
+            <a href="../lab9/index.html">Lab 9</a>
+            <a href="../lab10/index.html">Lab 10</a>
+        </nav>
+
+        <section class="chart-card" aria-labelledby="corpus-title">
+            <div class="chart-heading">
+                <p class="lab-number">Corpus Description</p>
+                <h2 id="corpus-title">Official Undergraduate Bulletin</h2>
+                <p>
+                    <strong>Document:</strong> Bulletin of Duke Kunshan
+                    University Undergraduate Instruction, 2021-2022.
+                </p>
+                <p>
+                    <strong>Source:</strong>
+                    <a href="https://dku-web-admissions.s3.cn-north-1.amazonaws.com.cn/dkumain/files/V2021-22_DKU_UG_Bulletin.pdf">
+                        official DKU bulletin PDF
+                    </a>
+                    supplied with this lab.
+                </p>
+                <p class="lab8-method-note">
+                    The PDF text is divided at printed headings and paragraph
+                    boundaries. Each passage preserves its chapter, formal
+                    Part, nested subsection path, PDF page, and original text.
+                    Cover and table-of-contents pages are excluded; whitespace,
+                    wrapped headings, and hyphenated line breaks are cleaned,
+                    and duplicate passages are removed.
+                </p>
+            </div>
+            <div id="lab8-corpus-stats" class="lab8-stat-grid" aria-label="Corpus summary"></div>
+        </section>
+
+        <section class="chart-card assignment-card" aria-labelledby="overview-title">
+            <div class="chart-heading">
+                <p class="lab-number">Corpus Overview</p>
+                <h2 id="overview-title">How the Bulletin Is Distributed</h2>
+                <p>
+                    Passage counts show where the document devotes its space;
+                    average passage length shows how densely each formal
+                    section is written. The term list summarizes the full
+                    cleaned corpus using mean TF-IDF weight.
+                </p>
+            </div>
+            <div class="lab8-overview-grid">
+                <article class="lab8-summary-panel">
+                    <h3>Passages by formal section</h3>
+                    <div id="section-count-chart" class="lab8-summary-chart"
+                        role="img" aria-label="Bar chart of passage counts by formal bulletin section"></div>
+                </article>
+                <article class="lab8-summary-panel">
+                    <h3>Average passage length</h3>
+                    <div id="section-length-chart" class="lab8-summary-chart"
+                        role="img" aria-label="Bar chart of average words per passage by formal bulletin section"></div>
+                </article>
+            </div>
+            <div class="lab8-term-panel">
+                <h3>Top corpus terms</h3>
+                <div id="lab8-top-terms" class="lab8-term-list" aria-label="Top TF-IDF corpus terms"></div>
+            </div>
+        </section>
+
+        <section class="chart-card assignment-card" aria-labelledby="analysis-title">
+            <div class="chart-heading">
+                <p class="lab-number">Semantic Analysis</p>
+                <h2 id="analysis-title">Embeddings, Projection, and Topics</h2>
+                <p>
+                    Each cleaned passage is encoded with
+                    <strong>all-MiniLM-L6-v2</strong> into a normalized
+                    384-dimensional semantic vector. UMAP projects those
+                    vectors into two dimensions (<em>n_neighbors</em> = 15,
+                    <em>min_dist</em> = 0.15, cosine metric, random seed 401).
+                    K-means groups the original 384-dimensional embeddings into
+                    eight clusters (<em>k</em> = 8, random seed 401); labels are
+                    assigned after inspecting representative passages and the
+                    ten highest mean TF-IDF terms in each cluster.
+                </p>
+            </div>
+            <div id="lab8-cluster-summary" class="lab8-cluster-grid"
+                aria-label="Semantic cluster summaries"></div>
+        </section>
+
+        <section class="chart-card assignment-card" aria-labelledby="map-title">
+            <div class="chart-heading">
+                <p class="lab-number">Semantic Embedding Map</p>
+                <h2 id="map-title">Explore Similar Bulletin Passages</h2>
+                <p>
+                    Each point is one passage. Position represents semantic
+                    similarity, color represents its semantic topic, and point
+                    size represents passage length. Search, filter, zoom, pan,
+                    or click a point to inspect its text and five nearest
+                    neighbors in the original embedding space.
+                </p>
+            </div>
+            <div class="lab8-controls" aria-label="Semantic map controls">
+                <label>
+                    Search passages
+                    <input type="search" id="lab8-search"
+                        placeholder="Try credit, graduation, registration...">
+                </label>
+                <label>
+                    Formal section
+                    <select id="lab8-section-filter">
+                        <option value="all">All sections</option>
+                    </select>
+                </label>
+                <label>
+                    Semantic topic
+                    <select id="lab8-topic-filter">
+                        <option value="all">All topics</option>
+                    </select>
+                </label>
+                <button type="button" id="lab8-reset">Reset view</button>
+            </div>
+            <p id="lab8-status" class="lab8-status" aria-live="polite"></p>
+
+            <div class="lab8-layout">
+                <section class="lab8-card">
+                    <div class="lab8-card-heading">
+                        <div>
+                            <h3>Semantic map</h3>
+                            <p>Drag to pan and scroll to zoom. Click a legend label to filter by topic.</p>
+                        </div>
+                    </div>
+                    <div id="semantic-map"></div>
+                    <div class="lab8-map-legends">
+                        <div id="lab8-legend" class="lab8-legend"></div>
+                        <div id="lab8-size-legend" class="lab8-size-legend"
+                            aria-label="Point size legend"></div>
+                    </div>
+                </section>
+                <aside id="lab8-detail-panel" class="lab8-card lab8-detail-panel">
+                    <h3>Passage details</h3>
+                    <p class="lab8-empty-state">
+                        Select a point to inspect its topic, formal section,
+                        original text, and five nearest semantic neighbors.
+                    </p>
+                </aside>
+            </div>
+        </section>
+
+        <section class="chart-card assignment-card" aria-labelledby="matrix-title">
+            <div class="chart-heading">
+                <p class="lab-number">Topic × Section Matrix</p>
+                <h2 id="matrix-title">Compare Semantic and Formal Structure</h2>
+                <p>
+                    Darker cells contain more passages. Hover for exact counts
+                    and click a cell to filter the embedding map to that topic
+                    and formal section. Selecting a point also outlines its
+                    corresponding matrix cell.
+                </p>
+            </div>
+            <div id="topic-section-matrix"></div>
+        </section>
+
+        <section class="chart-card assignment-card" aria-labelledby="findings-title">
+            <div class="chart-heading">
+                <p class="lab-number">Semantic Findings</p>
+                <h2 id="findings-title">What the Structure Reveals</h2>
+            </div>
+            <ol class="lab8-findings">
+                <li>
+                    <h3>What are the major semantic topics?</h3>
+                    <p>
+                        Eight interpretable topics emerge: STEM courses and
+                        prerequisites; academic credit and procedures; degree
+                        requirements and electives; politics, history, and
+                        global studies; media, arts, and culture; Chinese
+                        language and China studies; health, society, and
+                        research; and university policies and student life.
+                    </p>
+                </li>
+                <li>
+                    <h3>Which topics appear across multiple formal sections?</h3>
+                    <p>
+                        Academic Credit and Procedures is the most visibly
+                        cross-cutting topic, appearing in nine Parts and linking
+                        curriculum, financial information, admissions, academic
+                        procedures, and the calendar. University Policies and
+                        Student Life spans eleven Parts, showing that
+                        institutional guidance is distributed throughout the
+                        bulletin rather than isolated in one chapter.
+                    </p>
+                </li>
+                <li>
+                    <h3>Which formal sections contain the most semantically diverse content?</h3>
+                    <p>
+                        Part 10, Majors and Courses, contains all eight topics
+                        and the broadest topic mixture. Among the smaller
+                        narrative sections, Part 2 and Part 3 each combine
+                        several themes, whereas Financial Information and the
+                        Calendar concentrate mainly on academic procedures.
+                    </p>
+                </li>
+                <li>
+                    <h3>Which passages from different sections are semantically similar?</h3>
+                    <p>
+                        For example, passage p00002 in General Information and p00014
+                        in A Liberal Arts Education are nearest neighbors
+                        because both describe DKU's research-oriented liberal
+                        arts mission. The map also connects p00003 on campus
+                        diversity with p00229 on cross-cultural student clubs,
+                        despite their different formal locations.
+                    </p>
+                </li>
+                <li>
+                    <h3>Which passages appear unusual relative to their formal section?</h3>
+                    <p>
+                        The compact grade-point table p00147 on page 52 is the
+                        only Academic Procedures passage assigned to the STEM
+                        Courses and Prerequisites cluster. Passage p00026 on
+                        advanced writing and speaking is also a visual outlier
+                        within The Curriculum because its language is closer to
+                        media and communication passages than to policy prose.
+                    </p>
+                </li>
+                <li>
+                    <h3>Does the concept (credit, graduation, registration, or academic integrity) occur in one semantic region or across several topics?</h3>
+                    <p>
+                        “Credit” occurs in 263 passages and is spread across all
+                        eight topics, led by degree requirements and academic
+                        procedures. “Graduation” appears 30 times, mostly in
+                        Academic Procedures; “registration” appears eight
+                        times, six of them in that same formal Part; and the
+                        exact phrase “academic integrity” appears twice, both
+                        in Academic Procedures. Search these terms above to
+                        inspect the matching passages directly.
+                    </p>
+                </li>
+            </ol>
+        </section>
+
+        <section class="chart-card assignment-card" aria-labelledby="design-title">
+            <div class="chart-heading">
+                <p class="lab-number">Design Description</p>
+                <h2 id="design-title">Analytical and Interaction Choices</h2>
+            </div>
+            <div class="analysis-text">
+                <p>
+                    The analysis treats each paragraph-like bulletin passage as
+                    the semantic unit because it is long enough to express a
+                    policy or course idea but short enough to support
+                    passage-level retrieval. The all-MiniLM-L6-v2 model turns
+                    each passage into a 384-dimensional embedding, and cosine
+                    similarity supplies the five nearest neighbors. UMAP is
+                    used only to create the two-dimensional display; clusters
+                    and neighbors are calculated in the original embedding
+                    space so that screen geometry does not redefine semantic
+                    similarity.
+                    Eight semantic topics were generated by applying K-means 
+                    clustering (k = 8, random seed = 401) to the original 
+                    384-dimensional passage embeddings rather than the 
+                    two-dimensional UMAP coordinates. Each cluster was then labeled 
+                    by examining its representative passages and ten highest-scoring
+                    TF-IDF terms. The final labels summarize the dominant subject 
+                    matter shared by the passages in each cluster.
+                </p>
+                <p>
+                    The map encodes topic with a categorical color palette,
+                    passage length with area, and semantic proximity with
+                    position. Low default opacity keeps dense regions legible,
+                    while selection outlines the chosen passage and its
+                    neighbors. Search plus topic and formal-section filters
+                    support targeted questions and open exploration. Clicking
+                    reveals preserved metadata and original text, while zoom
+                    and pan make dense course clusters inspectable. The matrix
+                    offers a complementary aggregate view: rows retain the
+                    bulletin's formal Parts, columns show the eight data-driven
+                    topics, and color intensity encodes passage count.
+                    Coordination works in both directions, where a matrix cell filters
+                    points, and a selected point outlines its matching cell, which allows
+                    readers to move between document structure and individual
+                    evidence.
+                </p>
+            </div>
+        </section>
+
+        <a class="back-link" href="../index.html">← Back to labs</a>
+        <div id="lab8-tooltip"></div>
+    </main>
+    <script src="lab8.js?v=9"></script>
+</body>
 </html>
