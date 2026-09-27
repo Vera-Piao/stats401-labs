@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="A D3.js redesign of Matt Chambers' Sports City visualization.">
+    <title>Visualization Critique and Redesign · Sports City</title>
+    <link rel="stylesheet" href="../css/style.css?v=12">
+    <link rel="stylesheet" href="project.css?v=2">
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+</head>
+<body>
+    <main class="page-shell">
+        <header class="site-header">
+            <p class="eyebrow">STATS 401 · Individual Project</p>
+            <h1>Visualization Critique and Redesign</h1>
+            <p class="intro">
+                A critique and D3.js redesign of <em>Sports City</em>, examining
+                how championship success varies across cities, leagues, and time.
+            </p>
+        </header>
+
+        <nav class="lab-nav" aria-label="Course labs">
+            <a href="../lab1/index.html">Lab 1</a>
+            <a href="../lab2/index.html">Lab 2</a>
+            <a href="../lab3/index.html">Lab 3</a>
+            <a href="../lab4/index.html">Lab 4</a>
+            <a href="../lab5/index.html">Lab 5</a>
+            <a href="../lab6/index.html">Lab 6</a>
+            <a href="../lab7/index.html">Lab 7</a>
+            <a href="../lab8/index.html">Lab 8</a>
+            <a href="../lab9/index.html">Lab 9</a>
+            <a href="../lab10/index.html">Lab 10</a>
+            <a class="active" aria-current="page" href="index.html">Critique &amp; Redesign</a>
+        </nav>
+
+        <section class="chart-card" aria-labelledby="original-title">
+            <div class="chart-heading project-heading">
+                <p class="lab-number">Original Visualization and Source</p>
+                <h2 id="original-title">Sports City</h2>
+                <p>
+                    Created by Matt Chambers in 2018, the original Tableau visualization
+                    uses a four-petal flower for each city. Petal size encodes championship
+                    counts in MLB, NBA, NFL, and NHL, while the center can reveal the city total.
+                </p>
+                <p class="source-line">
+                    <strong>Source:</strong>
+                    <a href="https://public.tableau.com/app/profile/matt.chambers/viz/SportsCity/SportsCity">Sports City on Tableau Public</a>
+                    · <a href="https://www.sirvizalot.com/2018/10/sports-city.html">author’s project page</a>
+                </p>
+            </div>
+
+            <figure class="original-figure">
+                <img src="Sports%20City.png" alt="Sports City Tableau visualization showing flower glyphs whose four petals represent MLB, NHL, NBA, and NFL championship counts for each city.">
+                <figcaption>
+                    Figure 1. The original <em>Sports City</em> visualization by Matt Chambers.
+                </figcaption>
+            </figure>
+        </section>
+
+        <section class="chart-card assignment-card" aria-labelledby="introduction-title">
+            <div class="chart-heading project-heading">
+                <p class="lab-number">Introduction to the Visualization and Data</p>
+                <h2 id="introduction-title">What the visualization shows</h2>
+            </div>
+
+            <div class="intro-grid">
+                <article>
+                    <h3>Message</h3>
+                    <p>The visualization compares which North American metropolitan areas have won the most championships and shows how each total is divided among the four leagues.</p>
+                </article>
+                <article>
+                    <h3>Audience and tasks</h3>
+                    <p>It is designed for general sports fans who want to compare city totals, identify leaders, inspect league composition, and explore when individual titles occurred.</p>
+                </article>
+                <article>
+                    <h3>Data</h3>
+                    <p>The external CSV contains one championship event per row through 2018, with year, league, metropolitan area, and winning team. Titles are assigned to the metro where the team played when it won.</p>
+                </article>
+            </div>
+        </section>
+
+        <section class="chart-card assignment-card" aria-labelledby="redesign-title">
+            <div class="chart-heading project-heading redesign-heading">
+                <p class="lab-number">Redesigned D3.js Visualization</p>
+                <h2 id="redesign-title">When—and in which leagues—did cities win?</h2>
+                <p>
+                    Filter a shared time window, compare ranked totals and league composition,
+                    then select a city to inspect every championship on a timeline.
+                </p>
+            </div>
+
+            <div class="control-panel" aria-label="Visualization controls">
+                <div class="year-control">
+                    <div class="control-label-row">
+                        <label for="start-year">Start year</label>
+                        <output id="start-year-value" for="start-year">1903</output>
+                    </div>
+                    <input id="start-year" type="range" min="1903" max="2018" value="1903" step="1">
+                </div>
+                <div class="year-control">
+                    <div class="control-label-row">
+                        <label for="end-year">End year</label>
+                        <output id="end-year-value" for="end-year">2018</output>
+                    </div>
+                    <input id="end-year" type="range" min="1903" max="2018" value="2018" step="1">
+                </div>
+                <div class="limit-control">
+                    <label for="city-limit">Cities shown</label>
+                    <select id="city-limit">
+                        <option value="10">Top 10</option>
+                        <option value="15" selected>Top 15</option>
+                        <option value="25">Top 25</option>
+                        <option value="all">All cities</option>
+                    </select>
+                </div>
+                <button id="reset-view" class="reset-button" type="button">Reset view</button>
+            </div>
+
+            <div class="preset-row" aria-label="Time range presets">
+                <span>Quick ranges:</span>
+                <button type="button" data-start="1903" data-end="2018">All years</button>
+                <button type="button" data-start="1947" data-end="2018">Four-league era</button>
+                <button type="button" data-start="1980" data-end="1999">1980–1999</button>
+                <button type="button" data-start="2000" data-end="2018">2000–2018</button>
+            </div>
+
+            <div id="viz-status" class="viz-status" aria-live="polite"></div>
+
+            <div class="legend" aria-label="League color legend">
+                <span><i style="--swatch:#df6b4f"></i>MLB</span>
+                <span><i style="--swatch:#2a9d8f"></i>NBA</span>
+                <span><i style="--swatch:#3f6f9f"></i>NFL</span>
+                <span><i style="--swatch:#8067a8"></i>NHL</span>
+            </div>
+
+            <section class="chart-panel" aria-labelledby="ranking-title">
+                <div class="panel-heading">
+                    <div>
+                        <p class="panel-overline">Ranked comparison</p>
+                        <h3 id="ranking-title">Championships by metropolitan area</h3>
+                    </div>
+                    <p>Click a city to update the timeline.</p>
+                </div>
+                <div id="ranking-chart" class="d3-chart" role="img" aria-label="Ranked horizontal stacked bar chart of championships by city and league"></div>
+            </section>
+
+            <section class="chart-panel timeline-panel" aria-labelledby="timeline-title">
+                <div class="panel-heading">
+                    <div>
+                        <p class="panel-overline">Selected city</p>
+                        <h3 id="timeline-title">Championship timeline</h3>
+                    </div>
+                    <p id="timeline-summary"></p>
+                </div>
+                <div id="timeline-chart" class="d3-chart" role="img" aria-label="Timeline of championship events for the selected city"></div>
+            </section>
+
+            <p class="scope-note">
+                <strong>Scope note:</strong> filtering creates a common calendar window, but it does not equalize the number of teams or franchise-seasons available to each city.
+            </p>
+                        <noscript>This visualization requires JavaScript.</noscript>
+                    </section>
+
+                    <section class="chart-card assignment-card references-card" aria-labelledby="references-title">
+                        <div class="chart-heading project-heading">
+                            <p class="lab-number">Data Source and References</p>
+                            <h2 id="references-title">Sources</h2>
+                        </div>
+                        <ol>
+                            <li>Chambers, Matt. <a href="https://public.tableau.com/app/profile/matt.chambers/viz/SportsCity/SportsCity"><em>Sports City</em></a>. Tableau Public, 2018.</li>
+                            <li>Wikipedia contributors. <a href="https://en.wikipedia.org/wiki/List_of_North_American_cities_by_number_of_major_sports_championships">“List of North American cities by number of major sports championships.”</a></li>
+                            <li>Event records were reconstructed from Wikipedia’s <a href="https://en.wikipedia.org/wiki/List_of_World_Series_champions">World Series</a>, <a href="https://en.wikipedia.org/wiki/List_of_NBA_champions">NBA Finals</a>, <a href="https://en.wikipedia.org/wiki/List_of_NFL_champions_(1920%E2%80%931969)">NFL championship</a>, <a href="https://en.wikipedia.org/wiki/List_of_Super_Bowl_champions">Super Bowl</a>, and <a href="https://en.wikipedia.org/wiki/List_of_Stanley_Cup_champions">Stanley Cup</a> histories. Accessed September 27, 2026.</li>
+                        </ol>
+                        <p class="data-download"><a href="../data/championships.csv" download>Download the external championship dataset (CSV)</a></p>
+                    </section>
+
+                    <section class="chart-card assignment-card report-card" aria-labelledby="report-title">
+                <div class="chart-heading project-heading">
+                    <p class="lab-number">Visualization Critique and Redesign Report</p>
+                    <h2 id="report-title">Project Report</h2>
+                </div>
+
+                <iframe
+                    class="report-frame"
+                    src="Visualization%20Critique%20and%20Redesign%20Report.pdf#view=FitH"
+                    title="Visualization Critique and Redesign Report"
+                    loading="lazy">
+                </iframe>
+
+                <p class="report-fallback">
+                    If the PDF does not display,
+                    <a href="Visualization%20Critique%20and%20Redesign%20Report.pdf">
+                        open or download the report
+                    </a>.
+                </p>
+            </section>
+    </main>
+
+    <div id="chart-tooltip" class="chart-tooltip" role="status" aria-live="polite"></div>
+    <script src="redesign.js?v=2"></script>
+</body>
+</html>

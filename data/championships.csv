@@ -1,0 +1,385 @@
+year,league,city,team
+1903,MLB,Boston,Boston Americans
+1905,MLB,New York City,New York Giants
+1906,MLB,Chicago,Chicago White Sox
+1907,MLB,Chicago,Chicago Cubs
+1908,MLB,Chicago,Chicago Cubs
+1909,MLB,Pittsburgh,Pittsburgh Pirates
+1910,MLB,Philadelphia,Philadelphia Athletics
+1911,MLB,Philadelphia,Philadelphia Athletics
+1912,MLB,Boston,Boston Red Sox
+1913,MLB,Philadelphia,Philadelphia Athletics
+1914,MLB,Boston,Boston Braves
+1915,MLB,Boston,Boston Red Sox
+1916,MLB,Boston,Boston Red Sox
+1916,NHL,Montreal,Montreal Canadiens
+1917,MLB,Chicago,Chicago White Sox
+1918,MLB,Boston,Boston Red Sox
+1919,MLB,Cincinnati,Cincinnati Reds
+1919,NHL,Montreal,Montreal Canadiens
+1920,MLB,Cleveland,Cleveland Indians
+1920,NFL,Akron,Akron Pros
+1920,NHL,Ottawa,Ottawa Senators
+1921,MLB,New York City,New York Giants
+1921,NFL,Chicago,Chicago Staleys
+1921,NHL,Ottawa,Ottawa Senators
+1922,MLB,New York City,New York Giants
+1922,NFL,Canton,Canton Bulldogs
+1922,NHL,Toronto,Toronto St. Patricks
+1923,MLB,New York City,New York Yankees
+1923,NFL,Canton,Canton Bulldogs
+1923,NHL,Ottawa,Ottawa Senators
+1924,MLB,"Washington, D.C.",Washington Senators
+1924,NFL,Cleveland,Cleveland Bulldogs
+1924,NHL,Montreal,Montreal Canadiens
+1925,MLB,Pittsburgh,Pittsburgh Pirates
+1925,NFL,Chicago,Chicago Cardinals
+1925,NHL,Victoria,Victoria Cougars
+1926,MLB,St. Louis,St. Louis Cardinals
+1926,NFL,Philadelphia,Frankford Yellow Jackets
+1926,NHL,Montreal,Montreal Maroons
+1927,MLB,New York City,New York Yankees
+1927,NFL,New York City,New York Giants
+1927,NHL,Ottawa,Ottawa Senators
+1928,MLB,New York City,New York Yankees
+1928,NFL,Providence,Providence Steam Roller
+1928,NHL,New York City,New York Rangers
+1929,MLB,Philadelphia,Philadelphia Athletics
+1929,NFL,Green Bay,Green Bay Packers
+1929,NHL,Boston,Boston Bruins
+1930,MLB,Philadelphia,Philadelphia Athletics
+1930,NFL,Green Bay,Green Bay Packers
+1930,NHL,Montreal,Montreal Canadiens
+1931,MLB,St. Louis,St. Louis Cardinals
+1931,NFL,Green Bay,Green Bay Packers
+1931,NHL,Montreal,Montreal Canadiens
+1932,MLB,New York City,New York Yankees
+1932,NFL,Chicago,Chicago Bears
+1932,NHL,Toronto,Toronto Maple Leafs
+1933,MLB,New York City,New York Giants
+1933,NFL,Chicago,Chicago Bears
+1933,NHL,New York City,New York Rangers
+1934,MLB,St. Louis,St. Louis Cardinals
+1934,NFL,New York City,New York Giants
+1934,NHL,Chicago,Chicago Black Hawks
+1935,MLB,Detroit,Detroit Tigers
+1935,NFL,Detroit,Detroit Lions
+1935,NHL,Montreal,Montreal Maroons
+1936,MLB,New York City,New York Yankees
+1936,NFL,Green Bay,Green Bay Packers
+1936,NHL,Detroit,Detroit Red Wings
+1937,MLB,New York City,New York Yankees
+1937,NFL,"Washington, D.C.",Washington Redskins
+1937,NHL,Detroit,Detroit Red Wings
+1938,MLB,New York City,New York Yankees
+1938,NFL,New York City,New York Giants
+1938,NHL,Chicago,Chicago Black Hawks
+1939,MLB,New York City,New York Yankees
+1939,NFL,Green Bay,Green Bay Packers
+1939,NHL,Boston,Boston Bruins
+1940,MLB,Cincinnati,Cincinnati Reds
+1940,NFL,Chicago,Chicago Bears
+1940,NHL,New York City,New York Rangers
+1941,MLB,New York City,New York Yankees
+1941,NFL,Chicago,Chicago Bears
+1941,NHL,Boston,Boston Bruins
+1942,MLB,St. Louis,St. Louis Cardinals
+1942,NFL,"Washington, D.C.",Washington Redskins
+1942,NHL,Toronto,Toronto Maple Leafs
+1943,MLB,New York City,New York Yankees
+1943,NFL,Chicago,Chicago Bears
+1943,NHL,Detroit,Detroit Red Wings
+1944,MLB,St. Louis,St. Louis Cardinals
+1944,NFL,Green Bay,Green Bay Packers
+1944,NHL,Montreal,Montreal Canadiens
+1945,MLB,Detroit,Detroit Tigers
+1945,NFL,Cleveland,Cleveland Rams
+1945,NHL,Toronto,Toronto Maple Leafs
+1946,MLB,St. Louis,St. Louis Cardinals
+1946,NFL,Chicago,Chicago Bears
+1946,NHL,Montreal,Montreal Canadiens
+1947,MLB,New York City,New York Yankees
+1947,NBA,Philadelphia,Philadelphia Warriors
+1947,NFL,Chicago,Chicago Cardinals
+1947,NHL,Toronto,Toronto Maple Leafs
+1948,MLB,Cleveland,Cleveland Indians
+1948,NBA,Baltimore,Baltimore Bullets
+1948,NFL,Philadelphia,Philadelphia Eagles
+1948,NHL,Toronto,Toronto Maple Leafs
+1949,MLB,New York City,New York Yankees
+1949,NBA,Minneapolis,Minneapolis Lakers
+1949,NFL,Philadelphia,Philadelphia Eagles
+1949,NHL,Toronto,Toronto Maple Leafs
+1950,MLB,New York City,New York Yankees
+1950,NBA,Minneapolis,Minneapolis Lakers
+1950,NFL,Cleveland,Cleveland Browns
+1950,NHL,Detroit,Detroit Red Wings
+1951,MLB,New York City,New York Yankees
+1951,NBA,Rochester,Rochester Royals
+1951,NFL,Los Angeles,Los Angeles Rams
+1951,NHL,Toronto,Toronto Maple Leafs
+1952,MLB,New York City,New York Yankees
+1952,NBA,Minneapolis,Minneapolis Lakers
+1952,NFL,Detroit,Detroit Lions
+1952,NHL,Detroit,Detroit Red Wings
+1953,MLB,New York City,New York Yankees
+1953,NBA,Minneapolis,Minneapolis Lakers
+1953,NFL,Detroit,Detroit Lions
+1953,NHL,Montreal,Montreal Canadiens
+1954,MLB,New York City,New York Giants
+1954,NBA,Minneapolis,Minneapolis Lakers
+1954,NFL,Cleveland,Cleveland Browns
+1954,NHL,Detroit,Detroit Red Wings
+1955,MLB,New York City,Brooklyn Dodgers
+1955,NBA,Syracuse,Syracuse Nationals
+1955,NFL,Cleveland,Cleveland Browns
+1955,NHL,Detroit,Detroit Red Wings
+1956,MLB,New York City,New York Yankees
+1956,NBA,Philadelphia,Philadelphia Warriors
+1956,NFL,New York City,New York Giants
+1956,NHL,Montreal,Montreal Canadiens
+1957,MLB,Milwaukee,Milwaukee Braves
+1957,NBA,Boston,Boston Celtics
+1957,NFL,Detroit,Detroit Lions
+1957,NHL,Montreal,Montreal Canadiens
+1958,MLB,New York City,New York Yankees
+1958,NBA,St. Louis,St. Louis Hawks
+1958,NFL,Baltimore,Baltimore Colts
+1958,NHL,Montreal,Montreal Canadiens
+1959,MLB,Los Angeles,Los Angeles Dodgers
+1959,NBA,Boston,Boston Celtics
+1959,NFL,Baltimore,Baltimore Colts
+1959,NHL,Montreal,Montreal Canadiens
+1960,MLB,Pittsburgh,Pittsburgh Pirates
+1960,NBA,Boston,Boston Celtics
+1960,NFL,Philadelphia,Philadelphia Eagles
+1960,NHL,Montreal,Montreal Canadiens
+1961,MLB,New York City,New York Yankees
+1961,NBA,Boston,Boston Celtics
+1961,NFL,Green Bay,Green Bay Packers
+1961,NHL,Chicago,Chicago Black Hawks
+1962,MLB,New York City,New York Yankees
+1962,NBA,Boston,Boston Celtics
+1962,NFL,Green Bay,Green Bay Packers
+1962,NHL,Toronto,Toronto Maple Leafs
+1963,MLB,Los Angeles,Los Angeles Dodgers
+1963,NBA,Boston,Boston Celtics
+1963,NFL,Chicago,Chicago Bears
+1963,NHL,Toronto,Toronto Maple Leafs
+1964,MLB,St. Louis,St. Louis Cardinals
+1964,NBA,Boston,Boston Celtics
+1964,NFL,Cleveland,Cleveland Browns
+1964,NHL,Toronto,Toronto Maple Leafs
+1965,MLB,Los Angeles,Los Angeles Dodgers
+1965,NBA,Boston,Boston Celtics
+1965,NFL,Green Bay,Green Bay Packers
+1965,NHL,Montreal,Montreal Canadiens
+1966,MLB,Baltimore,Baltimore Orioles
+1966,NBA,Boston,Boston Celtics
+1966,NHL,Montreal,Montreal Canadiens
+1967,MLB,St. Louis,St. Louis Cardinals
+1967,NBA,Philadelphia,Philadelphia 76ers
+1967,NFL,Green Bay,Green Bay Packers
+1967,NHL,Toronto,Toronto Maple Leafs
+1968,MLB,Detroit,Detroit Tigers
+1968,NBA,Boston,Boston Celtics
+1968,NFL,Green Bay,Green Bay Packers
+1968,NHL,Montreal,Montreal Canadiens
+1969,MLB,New York City,New York Mets
+1969,NBA,Boston,Boston Celtics
+1969,NFL,New York City,New York Jets
+1969,NHL,Montreal,Montreal Canadiens
+1970,MLB,Baltimore,Baltimore Orioles
+1970,NBA,New York City,New York Knicks
+1970,NFL,Kansas City,Kansas City Chiefs
+1970,NHL,Boston,Boston Bruins
+1971,MLB,Pittsburgh,Pittsburgh Pirates
+1971,NBA,Milwaukee,Milwaukee Bucks
+1971,NFL,Baltimore,Baltimore Colts
+1971,NHL,Montreal,Montreal Canadiens
+1972,MLB,Oakland,Oakland Athletics
+1972,NBA,Los Angeles,Los Angeles Lakers
+1972,NFL,Dallas,Dallas Cowboys
+1972,NHL,Boston,Boston Bruins
+1973,MLB,Oakland,Oakland Athletics
+1973,NBA,New York City,New York Knicks
+1973,NFL,Miami,Miami Dolphins
+1973,NHL,Montreal,Montreal Canadiens
+1974,MLB,Oakland,Oakland Athletics
+1974,NBA,Boston,Boston Celtics
+1974,NFL,Miami,Miami Dolphins
+1974,NHL,Philadelphia,Philadelphia Flyers
+1975,MLB,Cincinnati,Cincinnati Reds
+1975,NBA,Oakland,Golden State Warriors
+1975,NFL,Pittsburgh,Pittsburgh Steelers
+1975,NHL,Philadelphia,Philadelphia Flyers
+1976,MLB,Cincinnati,Cincinnati Reds
+1976,NBA,Boston,Boston Celtics
+1976,NFL,Pittsburgh,Pittsburgh Steelers
+1976,NHL,Montreal,Montreal Canadiens
+1977,MLB,New York City,New York Yankees
+1977,NBA,Portland,Portland Trail Blazers
+1977,NFL,Oakland,Oakland Raiders
+1977,NHL,Montreal,Montreal Canadiens
+1978,MLB,New York City,New York Yankees
+1978,NBA,"Washington, D.C.",Washington Bullets
+1978,NFL,Dallas,Dallas Cowboys
+1978,NHL,Montreal,Montreal Canadiens
+1979,MLB,Pittsburgh,Pittsburgh Pirates
+1979,NBA,Seattle,Seattle SuperSonics
+1979,NFL,Pittsburgh,Pittsburgh Steelers
+1979,NHL,Montreal,Montreal Canadiens
+1980,MLB,Philadelphia,Philadelphia Phillies
+1980,NBA,Los Angeles,Los Angeles Lakers
+1980,NFL,Pittsburgh,Pittsburgh Steelers
+1980,NHL,New York City,New York Islanders
+1981,MLB,Los Angeles,Los Angeles Dodgers
+1981,NBA,Boston,Boston Celtics
+1981,NFL,Oakland,Oakland Raiders
+1981,NHL,New York City,New York Islanders
+1982,MLB,St. Louis,St. Louis Cardinals
+1982,NBA,Los Angeles,Los Angeles Lakers
+1982,NFL,San Francisco,San Francisco 49ers
+1982,NHL,New York City,New York Islanders
+1983,MLB,Baltimore,Baltimore Orioles
+1983,NBA,Philadelphia,Philadelphia 76ers
+1983,NFL,"Washington, D.C.",Washington Redskins
+1983,NHL,New York City,New York Islanders
+1984,MLB,Detroit,Detroit Tigers
+1984,NBA,Boston,Boston Celtics
+1984,NFL,Los Angeles,Los Angeles Raiders
+1984,NHL,Edmonton,Edmonton Oilers
+1985,MLB,Kansas City,Kansas City Royals
+1985,NBA,Los Angeles,Los Angeles Lakers
+1985,NFL,San Francisco,San Francisco 49ers
+1985,NHL,Edmonton,Edmonton Oilers
+1986,MLB,New York City,New York Mets
+1986,NBA,Boston,Boston Celtics
+1986,NFL,Chicago,Chicago Bears
+1986,NHL,Montreal,Montreal Canadiens
+1987,MLB,Minneapolis,Minnesota Twins
+1987,NBA,Los Angeles,Los Angeles Lakers
+1987,NFL,New York City,New York Giants
+1987,NHL,Edmonton,Edmonton Oilers
+1988,MLB,Los Angeles,Los Angeles Dodgers
+1988,NBA,Los Angeles,Los Angeles Lakers
+1988,NFL,"Washington, D.C.",Washington Redskins
+1988,NHL,Edmonton,Edmonton Oilers
+1989,MLB,Oakland,Oakland Athletics
+1989,NBA,Detroit,Detroit Pistons
+1989,NFL,San Francisco,San Francisco 49ers
+1989,NHL,Calgary,Calgary Flames
+1990,MLB,Cincinnati,Cincinnati Reds
+1990,NBA,Detroit,Detroit Pistons
+1990,NFL,San Francisco,San Francisco 49ers
+1990,NHL,Edmonton,Edmonton Oilers
+1991,MLB,Minneapolis,Minnesota Twins
+1991,NBA,Chicago,Chicago Bulls
+1991,NFL,New York City,New York Giants
+1991,NHL,Pittsburgh,Pittsburgh Penguins
+1992,MLB,Toronto,Toronto Blue Jays
+1992,NBA,Chicago,Chicago Bulls
+1992,NFL,"Washington, D.C.",Washington Redskins
+1992,NHL,Pittsburgh,Pittsburgh Penguins
+1993,MLB,Toronto,Toronto Blue Jays
+1993,NBA,Chicago,Chicago Bulls
+1993,NFL,Dallas,Dallas Cowboys
+1993,NHL,Montreal,Montreal Canadiens
+1994,NBA,Houston,Houston Rockets
+1994,NFL,Dallas,Dallas Cowboys
+1994,NHL,New York City,New York Rangers
+1995,MLB,Atlanta,Atlanta Braves
+1995,NBA,Houston,Houston Rockets
+1995,NFL,San Francisco,San Francisco 49ers
+1995,NHL,Newark,New Jersey Devils
+1996,MLB,New York City,New York Yankees
+1996,NBA,Chicago,Chicago Bulls
+1996,NFL,Dallas,Dallas Cowboys
+1996,NHL,Denver,Colorado Avalanche
+1997,MLB,Miami,Florida Marlins
+1997,NBA,Chicago,Chicago Bulls
+1997,NFL,Green Bay,Green Bay Packers
+1997,NHL,Detroit,Detroit Red Wings
+1998,MLB,New York City,New York Yankees
+1998,NBA,Chicago,Chicago Bulls
+1998,NFL,Denver,Denver Broncos
+1998,NHL,Detroit,Detroit Red Wings
+1999,MLB,New York City,New York Yankees
+1999,NBA,San Antonio,San Antonio Spurs
+1999,NFL,Denver,Denver Broncos
+1999,NHL,Dallas,Dallas Stars
+2000,MLB,New York City,New York Yankees
+2000,NBA,Los Angeles,Los Angeles Lakers
+2000,NFL,St. Louis,St. Louis Rams
+2000,NHL,Newark,New Jersey Devils
+2001,MLB,Phoenix,Arizona Diamondbacks
+2001,NBA,Los Angeles,Los Angeles Lakers
+2001,NFL,Baltimore,Baltimore Ravens
+2001,NHL,Denver,Colorado Avalanche
+2002,MLB,Anaheim,Anaheim Angels
+2002,NBA,Los Angeles,Los Angeles Lakers
+2002,NFL,Boston,New England Patriots
+2002,NHL,Detroit,Detroit Red Wings
+2003,MLB,Miami,Florida Marlins
+2003,NBA,San Antonio,San Antonio Spurs
+2003,NFL,Tampa,Tampa Bay Buccaneers
+2003,NHL,Newark,New Jersey Devils
+2004,MLB,Boston,Boston Red Sox
+2004,NBA,Detroit,Detroit Pistons
+2004,NFL,Boston,New England Patriots
+2004,NHL,Tampa,Tampa Bay Lightning
+2005,MLB,Chicago,Chicago White Sox
+2005,NBA,San Antonio,San Antonio Spurs
+2005,NFL,Boston,New England Patriots
+2006,MLB,St. Louis,St. Louis Cardinals
+2006,NBA,Miami,Miami Heat
+2006,NFL,Pittsburgh,Pittsburgh Steelers
+2006,NHL,Raleigh,Carolina Hurricanes
+2007,MLB,Boston,Boston Red Sox
+2007,NBA,San Antonio,San Antonio Spurs
+2007,NFL,Indianapolis,Indianapolis Colts
+2007,NHL,Anaheim,Anaheim Ducks
+2008,MLB,Philadelphia,Philadelphia Phillies
+2008,NBA,Boston,Boston Celtics
+2008,NFL,New York City,New York Giants
+2008,NHL,Detroit,Detroit Red Wings
+2009,MLB,New York City,New York Yankees
+2009,NBA,Los Angeles,Los Angeles Lakers
+2009,NFL,Pittsburgh,Pittsburgh Steelers
+2009,NHL,Pittsburgh,Pittsburgh Penguins
+2010,MLB,San Francisco,San Francisco Giants
+2010,NBA,Los Angeles,Los Angeles Lakers
+2010,NFL,New Orleans,New Orleans Saints
+2010,NHL,Chicago,Chicago Blackhawks
+2011,MLB,St. Louis,St. Louis Cardinals
+2011,NBA,Dallas,Dallas Mavericks
+2011,NFL,Green Bay,Green Bay Packers
+2011,NHL,Boston,Boston Bruins
+2012,MLB,San Francisco,San Francisco Giants
+2012,NBA,Miami,Miami Heat
+2012,NFL,New York City,New York Giants
+2012,NHL,Los Angeles,Los Angeles Kings
+2013,MLB,Boston,Boston Red Sox
+2013,NBA,Miami,Miami Heat
+2013,NFL,Baltimore,Baltimore Ravens
+2013,NHL,Chicago,Chicago Blackhawks
+2014,MLB,San Francisco,San Francisco Giants
+2014,NBA,San Antonio,San Antonio Spurs
+2014,NFL,Seattle,Seattle Seahawks
+2014,NHL,Los Angeles,Los Angeles Kings
+2015,MLB,Kansas City,Kansas City Royals
+2015,NBA,Oakland,Golden State Warriors
+2015,NFL,Boston,New England Patriots
+2015,NHL,Chicago,Chicago Blackhawks
+2016,MLB,Chicago,Chicago Cubs
+2016,NBA,Cleveland,Cleveland Cavaliers
+2016,NFL,Denver,Denver Broncos
+2016,NHL,Pittsburgh,Pittsburgh Penguins
+2017,MLB,Houston,Houston Astros
+2017,NBA,Oakland,Golden State Warriors
+2017,NFL,Boston,New England Patriots
+2017,NHL,Pittsburgh,Pittsburgh Penguins
+2018,MLB,Boston,Boston Red Sox
+2018,NBA,Oakland,Golden State Warriors
+2018,NFL,Philadelphia,Philadelphia Eagles
+2018,NHL,"Washington, D.C.",Washington Capitals
