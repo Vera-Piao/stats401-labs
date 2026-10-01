@@ -6,7 +6,7 @@
 
     <title>Lab 9 - Geospatial Visualization</title>
 
-    <link rel="stylesheet" href="../css/style.css?v=11">
+    <link rel="stylesheet" href="../css/style.css?v=12">
     <script src="https://d3js.org/d3.v7.min.js"></script>
 </head>
 
@@ -59,9 +59,12 @@
             </div>
 
             <div class="lab9-map-toolbar">
-                <p>Scroll to zoom and drag to pan. Hover over a country to inspect it in both views.</p>
+                <p>Scroll to zoom and drag to pan. Hover to preview, or click a country to select it in both views.</p>
                 <button id="reset-map-zoom" type="button">Reset map</button>
             </div>
+            <p class="lab9-selection-status" aria-live="polite">
+                No country selected. Click a country in either view to keep it highlighted.
+            </p>
             <div id="choropleth-map"></div>
             <div
                 id="gdp-color-legend"
@@ -82,6 +85,9 @@
                 </p>
             </div>
 
+            <p class="lab9-selection-status" aria-live="polite">
+                No country selected. Click a country in either view to keep it highlighted.
+            </p>
             <div id="cartogram-map"></div>
             <div
                 id="cartogram-size-legend"
@@ -132,6 +138,6 @@
         <div id="lab9-tooltip" class="tooltip"></div>
     </main>
 
-    <script src="lab9.js?v=2"></script>
+    <script src="lab9.js?v=3"></script>
 </body>
 </html>

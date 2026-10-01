@@ -1161,6 +1161,15 @@ s.tooltip {
     background: var(--blue-dark);
 }
 
+.lab9-selection-status {
+    margin: 0 0 12px;
+    padding: 9px 12px;
+    border-left: 3px solid var(--blue);
+    color: var(--muted);
+    background: var(--blue-soft);
+    font-size: 0.86rem;
+}
+
 #choropleth-map svg {
     cursor: grab;
 }
@@ -1213,6 +1222,12 @@ s.tooltip {
 .cartogram-country.is-linked-highlight {
     stroke: var(--ink);
     stroke-width: 2.2;
+}
+
+.country.is-selected,
+.cartogram-country.is-selected {
+    stroke: #c2413b;
+    stroke-width: 3;
 }
 
 .country:focus,

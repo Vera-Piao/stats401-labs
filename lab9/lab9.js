@@ -1,5 +1,6 @@
 const tooltip = d3.select("#lab9-tooltip");
 const formatGDP = d3.format(",.1f");
+let selectedIso3 = null;
 
 async function init() {
     const [worldData, gdpData] = await Promise.all([
@@ -256,7 +257,49 @@ function bindCountryInteractions(selection, getRecord, getFallbackName) {
             d3.select(this).classed("is-linked-highlight", false);
             setLinkedHighlight(record?.iso3, false);
             hideTooltip();
+        })
+        .on("click", function (event, d) {
+            const record = getRecord(d);
+
+            if (!record) {
+                return;
+            }
+
+            event.stopPropagation();
+            toggleSelectedCountry(record);
+        })
+        .on("keydown", function (event, d) {
+            if (event.key !== "Enter" && event.key !== " ") {
+                return;
+            }
+
+            const record = getRecord(d);
+
+            if (!record) {
+                return;
+            }
+
+            event.preventDefault();
+            toggleSelectedCountry(record);
         });
+}
+
+function toggleSelectedCountry(record) {
+    selectedIso3 = selectedIso3 === record.iso3
+        ? null
+        : record.iso3;
+
+    d3.selectAll("[data-iso3]")
+        .classed("is-selected", function () {
+            return this.getAttribute("data-iso3") === selectedIso3;
+        });
+
+    d3.selectAll(".lab9-selection-status")
+        .text(
+            selectedIso3
+                ? `Selected in both maps: ${record.country} (${record.iso3}). Click it again to clear.`
+                : "No country selected. Click a country in either view to keep it highlighted."
+        );
 }
 
 function setLinkedHighlight(iso3, isActive) {
