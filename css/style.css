@@ -1109,3 +1109,161 @@ s.tooltip {
         grid-template-columns: 1fr;
     }
 }
+
+/* Lab 9: Geospatial visualization */
+
+#choropleth-map,
+#cartogram-map {
+    min-height: 420px;
+    overflow-x: auto;
+}
+
+#choropleth-map svg,
+#cartogram-map svg {
+    display: block;
+    width: 100%;
+    min-width: 720px;
+    height: auto;
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    background: #f8fafc;
+}
+
+.lab9-map-toolbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    margin: -8px 0 12px;
+}
+
+.lab9-map-toolbar p {
+    margin: 0;
+    color: var(--muted);
+    font-size: 0.86rem;
+}
+
+.lab9-map-toolbar button {
+    flex: 0 0 auto;
+    padding: 7px 12px;
+    border: 1px solid var(--blue);
+    border-radius: 6px;
+    color: #ffffff;
+    background: var(--blue);
+    cursor: pointer;
+    font: inherit;
+    font-size: 0.84rem;
+    font-weight: 700;
+}
+
+.lab9-map-toolbar button:hover,
+.lab9-map-toolbar button:focus-visible {
+    background: var(--blue-dark);
+}
+
+#choropleth-map svg {
+    cursor: grab;
+}
+
+#choropleth-map svg:active {
+    cursor: grabbing;
+}
+
+#gdp-color-legend svg,
+#cartogram-size-legend svg {
+    display: block;
+    width: 100%;
+    height: auto;
+    margin-top: 12px;
+    overflow: visible;
+}
+
+#gdp-color-legend svg {
+    max-width: 560px;
+}
+
+#cartogram-size-legend svg {
+    max-width: 540px;
+}
+
+.gdp-legend-title {
+    fill: var(--ink);
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.gdp-legend-axis text,
+.gdp-no-data-label {
+    fill: var(--muted);
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 11px;
+}
+
+.gdp-legend-axis path,
+.gdp-legend-axis line {
+    stroke: #aeb9c7;
+}
+
+.country {
+    cursor: pointer;
+    vector-effect: non-scaling-stroke;
+}
+
+.country.is-linked-highlight,
+.cartogram-country.is-linked-highlight {
+    stroke: var(--ink);
+    stroke-width: 2.2;
+}
+
+.country:focus,
+.cartogram-country:focus {
+    outline: none;
+}
+
+.cartogram-sphere {
+    fill: #f8fafc;
+    stroke: var(--line);
+    stroke-width: 1;
+}
+
+.cartogram-graticule {
+    fill: none;
+    stroke: #dfe6ef;
+    stroke-width: 0.65;
+}
+
+.cartogram-country {
+    cursor: pointer;
+    transition: stroke-width 120ms ease;
+}
+
+.cartogram-labels {
+    pointer-events: none;
+}
+
+.cartogram-labels text {
+    fill: #ffffff;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 9px;
+    font-weight: 700;
+    text-anchor: middle;
+    text-shadow: 0 1px 2px rgba(23, 32, 51, 0.65);
+}
+
+.cartogram-size-item line {
+    stroke: #2f6fb0;
+}
+
+.cartogram-size-item text {
+    fill: var(--muted);
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+@media (max-width: 600px) {
+    .lab9-map-toolbar {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+}

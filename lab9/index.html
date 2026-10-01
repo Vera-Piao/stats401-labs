@@ -1,5 +1,137 @@
 <!DOCTYPE html>
 <html lang="en">
-<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Lab 9</title><link rel="stylesheet" href="../css/style.css"></head>
-<body><main class="page-shell"><section class="placeholder-card"><p class="lab-number">STATS 401</p><h1>Lab 9</h1><p>Lab 9 will be added here.</p><a class="back-link" href="../index.html">← Back to home</a></section></main></body>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Lab 9 - Geospatial Visualization</title>
+
+    <link rel="stylesheet" href="../css/style.css?v=11">
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+</head>
+
+<body>
+    <main class="page-shell">
+        <header class="site-header">
+            <p class="eyebrow">STATS 401 · Lab 9</p>
+            <h1>Geospatial Visualization</h1>
+            <p class="intro">
+                Comparing the world’s largest economies using a choropleth
+                map and a GDP cartogram.
+            </p>
+        </header>
+
+        <nav class="lab-nav" aria-label="Course labs">
+            <a href="../lab1/index.html">Lab 1</a>
+            <a href="../lab2/index.html">Lab 2</a>
+            <a href="../lab3/index.html">Lab 3</a>
+            <a href="../lab4/index.html">Lab 4</a>
+            <a href="../lab5/index.html">Lab 5</a>
+            <a href="../lab6/index.html">Lab 6</a>
+            <a href="../lab7/index.html">Lab 7</a>
+            <a href="../lab8/index.html">Lab 8</a>
+            <a class="active" aria-current="page" href="index.html">Lab 9</a>
+            <a href="../lab10/index.html">Lab 10</a>
+        </nav>
+
+        <section class="chart-card" aria-labelledby="dataset-title">
+            <div class="chart-heading">
+                <p class="lab-number">Dataset Description</p>
+                <h2 id="dataset-title">2025 Nominal GDP</h2>
+                <p>
+                    This dataset records 2025 nominal GDP for the world’s 50 largest
+                    economies. GDP is measured in billions of current U.S. dollars.
+                    The data are based on the IMF October 2025 World Economic Outlook.
+                </p>
+            </div>
+        </section>
+
+        <section class="chart-card assignment-card"
+                 aria-labelledby="choropleth-title">
+            <div class="chart-heading">
+                <p class="lab-number">Choropleth Map</p>
+                <h2 id="choropleth-title">GDP Encoded with Color</h2>
+                <p>
+                    Darker blue represents higher 2025 nominal GDP. A logarithmic
+                    color scale keeps differences among smaller and medium-sized
+                    economies visible despite the strongly skewed distribution.
+                </p>
+            </div>
+
+            <div class="lab9-map-toolbar">
+                <p>Scroll to zoom and drag to pan. Hover over a country to inspect it in both views.</p>
+                <button id="reset-map-zoom" type="button">Reset map</button>
+            </div>
+            <div id="choropleth-map"></div>
+            <div
+                id="gdp-color-legend"
+                aria-label="Logarithmic color legend for 2025 GDP"
+            ></div>
+        </section>
+
+        <section class="chart-card assignment-card"
+                 aria-labelledby="cartogram-title">
+            <div class="chart-heading">
+                <p class="lab-number">Cartogram</p>
+                <h2 id="cartogram-title">GDP Encoded with Area</h2>
+                <p>
+                    This Dorling cartogram replaces country shapes with circles near
+                    their geographic positions. <strong>Circle area represents GDP</strong>,
+                    so larger economies occupy more visual area; circles move slightly
+                    to avoid overlap.
+                </p>
+            </div>
+
+            <div id="cartogram-map"></div>
+            <div
+                id="cartogram-size-legend"
+                aria-label="Circle area legend for 2025 GDP"
+            ></div>
+        </section>
+
+        <section class="chart-card assignment-card"
+                 aria-labelledby="comparison-title">
+            <div class="chart-heading">
+                <p class="lab-number">Design and Comparison</p>
+                <h2 id="comparison-title">
+                    Choropleth and Cartogram Trade-offs
+                </h2>
+            </div>
+
+            <div class="analysis-text">
+                <p>
+                    The choropleth makes the United States and China most prominent
+                    because they receive the darkest colors, while Germany, Japan,
+                    and India form the next visible tier. However, geographic area
+                    remains unchanged, so large countries such as Russia and Canada
+                    occupy substantial space even when their GDP is far below the two
+                    leaders, and small economies can be difficult to see. The Dorling
+                    cartogram changes that emphasis: the United States and China become
+                    the largest circles; Germany, Japan, India, and the United Kingdom
+                    expand relative to their land area; and geographically large but
+                    lower-GDP countries shrink. The choropleth preserves recognizable
+                    boundaries, coastlines, relative position, and adjacency, making it
+                    better for locating countries and studying regional patterns. Its
+                    logarithmic color scale also reveals differences across the highly
+                    skewed GDP distribution, although color is less direct for comparing
+                    exact magnitudes. The cartogram represents GDP through circle area,
+                    making magnitude rankings and large-versus-small comparisons more
+                    immediate. In exchange, it replaces country shapes and moves circles
+                    to avoid overlap, so exact borders, area, and some neighborhood
+                    relationships are lost. Moving from color to area makes global
+                    economic concentration feel more dramatic: a small number of
+                    economies dominate the display, while many familiar large land areas
+                    become visually secondary. The views therefore support different
+                    tasks and work best together through linked highlighting.
+                </p>
+            </div>
+        </section>
+
+        <a class="back-link" href="../index.html">← Back to labs</a>
+
+        <div id="lab9-tooltip" class="tooltip"></div>
+    </main>
+
+    <script src="lab9.js?v=2"></script>
+</body>
 </html>
