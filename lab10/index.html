@@ -1,5 +1,119 @@
 <!DOCTYPE html>
 <html lang="en">
-<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Lab 10</title><link rel="stylesheet" href="../css/style.css"></head>
-<body><main class="page-shell"><section class="placeholder-card"><p class="lab-number">STATS 401</p><h1>Lab 10</h1><p>Lab 10 will be added here.</p><a class="back-link" href="../index.html">← Back to home</a></section></main></body>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Lab 10 - Voice-Controlled GDP Exploration</title>
+
+    <link rel="stylesheet" href="../css/style.css?v=12">
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+<link rel="stylesheet" href="lab10.css">
+</head>
+
+<body>
+    <main class="page-shell">
+        <header class="site-header">
+            <p class="eyebrow">STATS 401 · Lab 10</p>
+            <h1>Voice-Controlled GDP Exploration</h1>
+            <p class="intro">
+                Extend Lab 9 with voice commands to explore and compare the world’s largest economies.
+            </p>
+        </header>
+
+        <nav class="lab-nav" aria-label="Course labs">
+            <a href="../lab1/index.html">Lab 1</a>
+            <a href="../lab2/index.html">Lab 2</a>
+            <a href="../lab3/index.html">Lab 3</a>
+            <a href="../lab4/index.html">Lab 4</a>
+            <a href="../lab5/index.html">Lab 5</a>
+            <a href="../lab6/index.html">Lab 6</a>
+            <a href="../lab7/index.html">Lab 7</a>
+            <a href="../lab8/index.html">Lab 8</a>
+            <a href="../lab9/index.html">Lab 9</a>
+            <a class="active" aria-current="page" href="index.html">Lab 10</a>
+        </nav>
+
+
+        <section class="chart-card" aria-labelledby="voice-title">
+          <div class="chart-heading"><p class="lab-number">Novel Interaction · Voice</p><h2 id="voice-title">Say the economy you want to explore</h2>
+          <p>This extends the existing Lab 9 implementation: both maps share the same country-selection function. Color and circle area retain their original GDP encodings.</p></div>
+          <div class="voice-controls"><button id="voice-start" disabled>Start voice control</button><button id="voice-stop" disabled>Stop listening</button><button id="reset-all" disabled>Reset visualization</button></div>
+          <div class="voice-feedback" role="status" aria-live="polite"><p id="voice-status">Loading visualization…</p><p id="voice-heard">Heard: —</p><p id="voice-action">Action: —</p></div>
+          <p><strong>If speech reports a network error:</strong> no voice command has been recognized. Open this page in standalone Chrome and try again. A microphone permission grant alone does not guarantee access to the browser’s speech service. Where supported, an already-installed English language pack is used for on-device recognition; otherwise the browser speech service is used. Typed commands test the action pipeline, not audio recognition.</p><h3>How to use</h3><ol><li>Open on localhost or HTTPS in a browser with speech recognition (Chrome is a practical choice). Press <strong>Start voice control</strong> and allow microphone access.</li><li>Say <strong>“Highlight Japan”</strong>, <strong>“Select China”</strong>, <strong>“Clear selection”</strong>, or <strong>“Reset”</strong>. Each start listens for one utterance. Press Start again for another command.</li><li>Check the transcript and action below. Unsupported speech keeps the current view and gives guidance.</li></ol>
+          <p>Country names come from the 50-economy dataset; “USA”, “US”, “UK”, and “South Korea” are also accepted. Selection stays visible in both maps, including GDP and rank. Reset clears selection and restores map zoom.</p>
+          <form id="command-form" class="voice-controls"><label for="typed-command">Type a command (no microphone)</label><input id="typed-command" placeholder="Highlight Japan" required><button id="run-command" disabled>Run command</button></form>
+          <div class="voice-controls"><label for="country-select">Choose an economy</label><select id="country-select" disabled><option value="">No country selected</option></select></div>
+          <p><strong>Fallback:</strong> choose a country above, type a command, or click either map. Tab to a country and press Enter or Space to select. All buttons and form controls also work by keyboard.</p>
+          <p><strong>Privacy:</strong> this page never starts the microphone automatically and does not store transcripts or recordings. Your browser’s speech service may send audio to its provider for processing. No camera is used. Stop listening cancels recognition; leaving the page also cancels it. You can use all fallback controls without granting microphone permission.</p>
+        </section>
+        <section class="chart-card" aria-labelledby="dataset-title">
+            <div class="chart-heading">
+                <p class="lab-number">Dataset Description</p>
+                <h2 id="dataset-title">2025 Nominal GDP</h2>
+                <p>
+                    This dataset records 2025 nominal GDP for the world’s 50 largest
+                    economies. GDP is measured in billions of current U.S. dollars.
+                    The data are based on the IMF October 2025 World Economic Outlook.
+                </p>
+            </div>
+        </section>
+
+        <section class="chart-card assignment-card"
+                 aria-labelledby="choropleth-title">
+            <div class="chart-heading">
+                <p class="lab-number">Choropleth Map</p>
+                <h2 id="choropleth-title">GDP Encoded with Color</h2>
+                <p>
+                    Darker blue represents higher 2025 nominal GDP. A logarithmic
+                    color scale keeps differences among smaller and medium-sized
+                    economies visible despite the strongly skewed distribution.
+                </p>
+            </div>
+
+            <div class="lab9-map-toolbar">
+                <p>Scroll to zoom and drag to pan. Hover to preview, or click a country to select it in both views.</p>
+                <button id="reset-map-zoom" type="button">Reset map</button>
+            </div>
+            <p class="lab9-selection-status" aria-live="polite">
+                No country selected. Click a country in either view to keep it highlighted.
+            </p>
+            <div id="choropleth-map"></div>
+            <div
+                id="gdp-color-legend"
+                aria-label="Logarithmic color legend for 2025 GDP"
+            ></div>
+        </section>
+
+        <section class="chart-card assignment-card"
+                 aria-labelledby="cartogram-title">
+            <div class="chart-heading">
+                <p class="lab-number">Cartogram</p>
+                <h2 id="cartogram-title">GDP Encoded with Area</h2>
+                <p>
+                    This Dorling cartogram replaces country shapes with circles near
+                    their geographic positions. <strong>Circle area represents GDP</strong>,
+                    so larger economies occupy more visual area; circles move slightly
+                    to avoid overlap.
+                </p>
+            </div>
+
+            <p class="lab9-selection-status" aria-live="polite">
+                No country selected. Click a country in either view to keep it highlighted.
+            </p>
+            <div id="cartogram-map"></div>
+            <div
+                id="cartogram-size-legend"
+                aria-label="Circle area legend for 2025 GDP"
+            ></div>
+        </section>
+
+        <section class="chart-card"><div class="chart-heading"><p class="lab-number">Design Reflection · 189 words</p><h2>Speaking to a linked map</h2><p>I extended my Lab 9 geospatial visualization, retaining its GDP choropleth, Dorling cartogram, logarithmic color scale, and linked country selection. The new modality is English voice control through the browser’s Web Speech API. Saying “Highlight Japan” or “Select China” selects the same economy in both views and displays its GDP and rank. “Clear selection” removes the highlight, while “Reset” also restores the map zoom. These commands support locating a named economy and comparing its geographic footprint with its economic importance without searching for a small map shape. Voice is appropriate for categorical selection because country names express the intended target directly. A visible transcript and action message make interpretation inspectable, and a country menu, typed commands, mouse, and keyboard provide alternatives. Exact command matching avoids accidental actions from unrelated speech. Testing showed that the one-command listening cycle needs clear instructions: users must wait for the listening indicator and restart recognition before each new utterance. Commands must also follow the supported selection syntax. These constraints can interrupt exploration, so visible feedback and conventional controls remain essential. Microphone access begins only after an explicit button press, and users can stop listening.</p></div></section>
+        <a class="back-link" href="../index.html">← Back to labs</a>
+
+        <div id="lab9-tooltip" class="tooltip"></div>
+    </main>
+
+    <script src="lab10.js"></script>
+</body>
 </html>
